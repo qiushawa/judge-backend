@@ -49,7 +49,7 @@ jobs:
         -d '{
           "embeds": [
             {
-              "title": "NFUCS-Group-Assistant-Bot",
+              "title": "nfu-csie-judge-backend",
               "description": "PR評論提交在分支 `${{ github.event.pull_request.head.ref }}`",
               "url": "${{ github.event.review.html_url }}",
               "color": 5814783,
