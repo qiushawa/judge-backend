@@ -15,7 +15,7 @@ jobs:
         -d '{
           "embeds": [
             {
-              "title": "NFUCS-Group-Assistant-Bot",
+              "title": "nfu-csie-judge-backend",
               "description": "在分支 `${{ github.ref }}` 有新的提交",
               "url": "${{ github.event.head_commit.url }}",
               "color": 5814783,
