@@ -1,6 +1,7 @@
+from asyncio.log import logger
 from quart import jsonify, request
 
-from app.util.apiUtil import require_api_key
+from app.util.apivalid import require_api_key
 from app.util.database import get_question, create_question, get_all_question_id
 
 
