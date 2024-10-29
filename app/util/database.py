@@ -119,6 +119,7 @@ async def create_tables():
     """創建資料表。"""
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    logger.info("Tables created successfully.")
 
 __all__ = [
     "get_user",

@@ -1,7 +1,7 @@
 from quart import jsonify, request
 from functools import wraps
 
-from app.util.apiUtil import require_api_key
+from app.util.apivalid import require_api_key
 from app.util.database import get_user, create_user, delete_user
 from app.config import API_KEY
 from app.util.errorHandler import error_handler, handle_error_status

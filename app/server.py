@@ -35,4 +35,4 @@ async def initialize():
 # 啟動伺服器
 # --------------------------------------------------
 async def start_server():
-    await app.run_task(host=HOST, port=PORT, debug=True)
+    await app.run_task(host=HOST, port=PORT)

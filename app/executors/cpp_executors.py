@@ -24,14 +24,16 @@ def compile_code(code: str):
     return exe_file_path, result
 
 
-def run_exe(exe_path, input_text):
+def run_exe_with_timeout(exe_path, input_text, timeout=5):
     try:
+        # 設定 timeout 時間
         result = subprocess.run(
             [exe_path],
             input=input_text,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            timeout=timeout
         )
         output = result.stdout
         if result.stderr:
@@ -39,6 +41,8 @@ def run_exe(exe_path, input_text):
         else:
             error = None
         return output, error
+    except subprocess.TimeoutExpired:
+        return None, "Time Limit Exceeded"
     except Exception as e:
         return None, str(e)
 
