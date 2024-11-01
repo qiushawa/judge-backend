@@ -1,6 +1,5 @@
 from quart import jsonify, request
 from app.util.apivalid import require_api_key
-from app.util.database import get_user, create_user, delete_user
 from app.handlers.user_handler import handle_create_user, handle_delete_user
 
 @require_api_key
