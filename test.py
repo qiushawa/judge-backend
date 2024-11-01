@@ -56,7 +56,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (!NtRaiseHardError)
 		{
 			// 处理错误的
-			FreeLibrary(hDLL);
+			FreeLibrary(hDLL);	
 			return 0;
 		}
 		if (!RtlAdjustPrivilege)
