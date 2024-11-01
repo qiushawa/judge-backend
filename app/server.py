@@ -16,7 +16,7 @@ app = cors(app, allow_origin='*')
 # --------------------------------------------------
 # 後端 API 路由
 # --------------------------------------------------
-
+app.add_url_rule("/", methods=["GET"], view_func=welcome)
 app.add_url_rule("/api/user/<action>", methods=["POST", "GET"], view_func=user_methods)
 app.add_url_rule("/api/question/<action>", methods=["POST", "GET"], view_func=question_methods)
 app.add_url_rule("/api/question", methods=["GET"], view_func=get_question_route)

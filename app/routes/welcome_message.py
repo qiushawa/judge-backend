@@ -1,8 +1,22 @@
-from quart import jsonify, render_template
-
+from quart import jsonify
 
 async def welcome():
-    return await render_template("home.html")
+    return jsonify({
+        "status": "success",
+        "message": "api server is running",
+        "help": {
+            "user": {
+                "create": "/api/user/create",
+                "delete": "/api/user/delete"
+            },
+            "question": {
+                "create": "/api/question/create",
+                "delete": "/api/question/delete",
+                "all": "/api/question/all"
+            },
+            "submit": "/api/submit"
+        }
+    })
 __all__ = [
     "welcome"
 ]

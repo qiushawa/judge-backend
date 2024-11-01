@@ -109,6 +109,17 @@ async def create_question(
         session.add(new_question)
         await session.commit()
 
+async def delete_question(id: int):
+    async for session in get_session():
+        result = await session.execute(
+            select(Question).where(Question.id == id)
+        )
+        question = result.scalars().first()
+        if question:
+            await session.delete(question)
+            await session.commit()
+            return True
+        return False
 
 # -------------------------------------------------------
 # 資料庫設置方法
@@ -129,5 +140,6 @@ __all__ = [
     "get_question",
     "create_question",
     "create_tables",
-    "get_all_question_id"
+    "get_all_question_id",
+    "delete_question",
 ]

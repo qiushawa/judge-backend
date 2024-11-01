@@ -4,13 +4,13 @@ from app.executors.message_formater import extract_first_n_lines
 
 def compile_code(code: str):
     with tempfile.NamedTemporaryFile(
-        suffix=".cpp", delete=False, mode="w", encoding="utf-8"
+        suffix=".c", delete=False, mode="w", encoding="utf-8"
     ) as temp_cpp_file:
         temp_cpp_file.write(code)
         temp_cpp_file.flush()
         cpp_file_path = temp_cpp_file.name
-    exe_file_path = cpp_file_path.replace(".cpp", ".exe")
-    compile_command = f"g++ {cpp_file_path} -o {exe_file_path}"
+    exe_file_path = cpp_file_path.replace(".c", ".exe")
+    compile_command = f"gcc {cpp_file_path} -o {exe_file_path}"
     result = subprocess.run(
         compile_command,
         shell=True,
@@ -26,7 +26,7 @@ def compile_code(code: str):
 def run_code(code, input_text, timeout=5):
     exe_path, compile_result = compile_code(code)
     if compile_result.stderr.strip():
-        return None, {"type": "Compile Error", "message": extract_first_n_lines(compile_result.stderr, "G:/tmp/code.cpp", 10)}
+        return None, {"type": "Compile Error", "message": extract_first_n_lines(compile_result.stderr, "G:/tmp/code.c", 10)}
     try:
         result = subprocess.run(
             [exe_path],
