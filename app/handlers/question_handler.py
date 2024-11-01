@@ -10,7 +10,7 @@ async def handle_create_question(data):
         data.get("Input"),
         data.get("Output"),
     )
-    return jsonify({"message": "Question created successfully"})
+    return jsonify({"message": "Question created successfully"}), 201
 
 async def handle_get_all_questions():
     question_list = await get_all_question_id()

@@ -8,7 +8,7 @@ from app.database.model.User import *
 from app.database.model.Question import *
 from app.database.model.APIKey import *
 from app.util.logger import setup_logger
-
+from app.util.encoders import *
 logger = setup_logger(__name__)
 
 database_path = os.path.abspath(DATABASE_PATH)
@@ -97,10 +97,10 @@ async def create_question(
         new_question = Question(
             title=title,
             description=description,
-            SampleInput=SampleInput,
-            SampleOutput=SampleOutput,
-            Input=Input,
-            Output=Output
+            SampleInput=encode_base64(SampleInput),
+            SampleOutput=encode_base64(SampleOutput),
+            Input=encode_base64(Input),
+            Output=encode_base64(Output),
         )
         session.add(new_question)
         await session.commit()
