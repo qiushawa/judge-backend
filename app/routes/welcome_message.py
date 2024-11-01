@@ -1,6 +1,10 @@
 from quart import jsonify
+from app.util.logger import setup_logger
+
+logger = setup_logger(__name__)
 
 async def welcome():
+    logger.info("Welcome endpoint called")
     return jsonify({
         "status": "success",
         "message": "api server is running",
@@ -17,6 +21,7 @@ async def welcome():
             "submit": "/api/submit"
         }
     })
+
 __all__ = [
     "welcome"
 ]

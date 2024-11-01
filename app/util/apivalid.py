@@ -1,4 +1,3 @@
-from app.config import logger
 from functools import wraps
 from quart import jsonify, request
 from app.config import API_KEY
@@ -15,7 +14,6 @@ def require_api_key(f):
         if api_key != API_KEY:
             # 記錄請求來源 IP 和失敗訊息
             client_ip = request.remote_addr
-            logger.info(f"Unauthorized access attempt from {client_ip} with invalid API key.")
             return jsonify({"error": "Unauthorized"}), 401
         return await f(*args, **kwargs)
     return decorated_function
