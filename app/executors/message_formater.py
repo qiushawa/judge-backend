@@ -1,6 +1,5 @@
 import re
 
-
 def hide_paths(error_message: str, fake_path) -> str:
     return re.sub(
         r"([a-zA-Z]:)?(\\|\/)[^\s]+", fake_path, error_message

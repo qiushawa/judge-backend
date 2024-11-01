@@ -24,3 +24,7 @@ def submit_code(language, file_path):
 def test_submit_code():
     result = submit_code("python", "code/hello_world.py")
     assert result["result"] == "Accept"
+    result = submit_code("c", "code/hello_world.c")
+    assert result["result"] == "Accept"
+    result = submit_code("cpp", "code/hello_world.cpp")
+    assert result["result"] == "Accept"
