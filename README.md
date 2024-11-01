@@ -1,5 +1,4 @@
-# NFUCSIE Judge
-虎尾科技大學資訊工程科程式解題系統
+# judge-backend
 
 ### 需求
 - Python > 3.12
